@@ -44,6 +44,11 @@ export class UsersController {
     return user;
   }
 
+  @Post('/signout')
+  signOut(@Session() session: any) {
+    session.userId = null;
+  }
+
   @Get('/:id')
   async findUser(@Param('id') id: string) {
     console.log('handler is runing');
